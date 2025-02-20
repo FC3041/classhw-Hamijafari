@@ -45,6 +45,7 @@ class Student{
         strcpy(name_copy, name);
         m_courseNames[m_coursesPassed] = name_copy;
         m_coursesPassed++;
+        
     }
 
     ~Student(){
