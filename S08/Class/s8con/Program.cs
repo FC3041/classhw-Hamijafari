@@ -15,12 +15,28 @@ public class Program
         }
     }
     //TODO ! below
-    public static void reverse_setnence(string[] s, out string[] sout){
-        sout = [];
-        for (int i = s.Length-1; i <= 0; i++){
-            sout[s.Length-i-1] = s[i]; 
+    public static void reverse_setnence_reverse_words(string sentence, out string rev_sen){
+        string[] words = sentence.Split(" ");
+        for (int i = 0; i < words.Length/2; i++){
+            string temp = words[i];
+            words[i] = words[words.Length-1-i];
+            words[words.Length-1-i] = temp;
         }
+        for (int i = 0; i < words.Length; i++){
+            reverse_string(words[i], out words[i]);
+        }
+        rev_sen = string.Join(" ", words);
     }
+    public static void reverse_setnence(string sentence, out string rev_sen){
+        string[] words = sentence.Split(" ");
+        for (int i = 0; i < words.Length/2; i++){
+            string temp = words[i];
+            words[i] = words[words.Length-1-i];
+            words[words.Length-1-i] = temp;
+        }
+        rev_sen = string.Join(" ", words);
+    }
+
     static void Main(string[] args){
         Student s1 = new Student("hami", 1234);
         Console.WriteLine(s1.name);
